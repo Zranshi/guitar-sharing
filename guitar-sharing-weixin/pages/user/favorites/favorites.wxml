@@ -1,0 +1,16 @@
+<!--pages/user/favorites/favorites.wxml-->
+<van-panel title="{{username}}的收藏" status="结果数目：{{list.length}}">
+    <van-divider
+            contentPosition="left">我的收藏
+    </van-divider>
+    <van-cell-group
+            wx:for="{{list}}"
+            wx:for-item="item">
+        <van-cell
+                title="{{item.mname}}"
+                value="{{item.type}}"
+                label="{{item.singer}}"
+                link-type="navigateTo"
+                url="{{'/pages/sheet/sheetInfo/sheetInfo?id='+item.id}}"/>
+    </van-cell-group>
+</van-panel>

@@ -1,0 +1,70 @@
+<!--pages/sheet/sheet.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<mp-toptips msg="{{info}}" type="info" show="{{info}}"></mp-toptips>
+<van-divider
+        contentPosition="left">上传图谱
+</van-divider>
+<van-row>
+    <van-col span="14">
+        <van-cell-group>
+            <van-field
+                    value="{{empty}}"
+                    label="名称"
+                    placeholder="输入名称"
+                    required
+                    clearable
+                    input-align="center"
+                    bind:input="nameInput"/>
+            <van-field
+                    value="{{empty}}"
+                    label="作者"
+                    placeholder="输入作者"
+                    required
+                    clearable
+                    input-align="center"
+                    bind:input="authorInput"/>
+            <van-field
+                    value="{{empty}}"
+                    label="类型"
+                    placeholder="输入类型"
+                    required
+                    clearable
+                    input-align="center"
+                    bind:input="typeInput"/>
+        </van-cell-group>
+    </van-col>
+    <van-col span="10">
+        <van-uploader
+                file-list="{{ fileList }}"
+                bind:after-read="afterRead"
+                max-count="1"
+                preview-full-image
+                preview-size="40vw"/>
+    </van-col>
+</van-row>
+<van-divider
+        contentPosition="left">我的图谱
+</van-divider>
+<van-cell-group
+        wx:for="{{userSheetList}}"
+        wx:for-item="item">
+    <van-cell
+            title="{{item.mname}}"
+            value="{{item.type}}"
+            label="{{item.singer}}"
+            link-type="navigateTo"
+            url="{{'/pages/sheet/sheetInfo/sheetInfo?id='+item.id}}"/>
+</van-cell-group>
+<van-divider
+        contentPosition="left">收藏图谱
+</van-divider>
+<van-cell-group
+        wx:for="{{favorites}}"
+        wx:for-item="item">
+    <van-cell
+            title="{{item.mname}}"
+            value="{{item.type}}"
+            label="{{item.singer}}"
+            link-type="navigateTo"
+            url="{{'/pages/sheet/sheetInfo/sheetInfo?id='+item.id}}"/>
+</van-cell-group>

@@ -1,0 +1,50 @@
+<!--pages/user/user.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<van-image
+        width="100vw"
+        height="60vw"
+        src="/pages/image/head-image/user.jpg"
+        fit="contain"
+/>
+<van-cell-group>
+    <van-cell
+            title="个人信息"
+            is-link
+            size="large"
+            icon="user-o"
+            link-type="navigateTo"
+            url="/pages/user/userInfo/userInfo"
+    />
+    <van-cell
+            title="我的收藏"
+            is-link
+            size="large"
+            icon="star-o"
+            link-type="navigateTo"
+            url="/pages/user/favorites/favorites"
+    />
+    <van-cell
+            title="和弦查询"
+            is-link
+            size="large"
+            icon="search"
+            link-type="navigateTo"
+            url="/pages/user/chordPage/chordPage"
+    />
+    <van-cell
+            title="反馈问题"
+            is-link
+            size="large"
+            icon="smile-comment-o"
+            link-type="navigateTo"
+            url="/pages/user/feedback/feedback"
+    />
+    <van-cell
+            title="相关推荐"
+            is-link
+            size="large"
+            icon="share-o"
+            link-type="navigateTo"
+            url="/pages/user/advocate/advocate"
+    />
+</van-cell-group>

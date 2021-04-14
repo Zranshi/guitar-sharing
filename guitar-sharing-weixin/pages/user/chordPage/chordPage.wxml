@@ -1,0 +1,10 @@
+<!--pages/user/chordPage/chordPage.wxml-->
+<van-divider
+        contentPosition="left">吉他和弦
+</van-divider>
+<van-image
+        width="100vw"
+        height="140vw"
+        src="{{url}}"
+        fit="contain"
+/>

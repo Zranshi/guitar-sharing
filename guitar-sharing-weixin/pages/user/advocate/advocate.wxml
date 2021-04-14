@@ -1,0 +1,9 @@
+<!--pages/user/advocate/advocate.wxml-->
+<van-cell-group wx:for="{{list}}" wx:for-item="item">
+    <van-cell
+            title="{{item.title}}"
+            label="{{item.label}}"
+            link-type="navigateTo"
+            url="{{'/pages/learn/web/web?url='+item.url}}"/>
+    <van-divider/>
+</van-cell-group>

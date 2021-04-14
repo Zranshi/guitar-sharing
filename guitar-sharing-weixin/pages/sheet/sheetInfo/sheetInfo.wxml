@@ -1,0 +1,37 @@
+<!--pages/sheet/sheetInfo/sheetInfo.wxml-->
+<mp-toptips msg="{{info}}" type="info" show="{{info}}"></mp-toptips>
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<van-panel title="{{it.mname}}" desc="{{it.singer}}" status="{{it.type}}">
+    <van-divider
+            contentPosition="left">图谱
+    </van-divider>
+    <van-image
+            width="100vw"
+            height="150vw"
+            src="{{imgUrl}}"
+            fit="contain"/>
+</van-panel>
+<van-divider/>
+<van-row>
+    <van-col span="12">
+        <van-button
+                class="van-hairline--surround"
+                size="small"
+                block
+                bind:click="favorites"
+                type="primary"
+                disabled="{{disable}}">{{fa}}
+        </van-button>
+    </van-col>
+    <van-col span="12">
+        <van-button
+                class="van-hairline--surround"
+                size="small"
+                block
+                bind:click="download"
+                type="info">下载
+        </van-button>
+    </van-col>
+</van-row>
+
+

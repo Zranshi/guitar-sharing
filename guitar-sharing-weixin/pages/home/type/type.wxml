@@ -1,0 +1,17 @@
+<!--pages/home/type/type.wxml-->
+<van-panel title="类型分类：{{type}}" status="结果数目：{{list.length}}">
+    <van-divider
+            contentPosition="left">查询结果
+    </van-divider>
+    <van-cell-group
+            wx:for="{{list}}"
+            wx:for-item="item">
+        <van-cell
+                title="{{item.mname}}"
+                value="{{item.type}}"
+                label="{{item.singer}}"
+                link-type="navigateTo"
+                url="{{'/pages/sheet/sheetInfo/sheetInfo?id='+item.id}}"/>
+    </van-cell-group>
+</van-panel>
+

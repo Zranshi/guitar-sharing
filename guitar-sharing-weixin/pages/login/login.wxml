@@ -1,0 +1,25 @@
+<!--pages/login/login.wxml-->
+
+<view class="login-container margin">
+    <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+    <view class="title">吉他资源分享平台</view>
+    <van-divider
+            contentPosition="left">登陆
+    </van-divider>
+    <view class="login-box margin">
+        <label>用户名</label>
+        <mp-cell prop="username" ext-class="margin">
+            <input bindinput="userInput" class="weui-input" placeholder="请输入用户名"/>
+        </mp-cell>
+        <label>密码</label>
+        <mp-cell prop="password" ext-class="margin">
+            <input bindinput="passInput" type="password" class="weui-input" placeholder="请输入密码"/>
+        </mp-cell>
+        <view class="margin">
+            <button bindtap="login" class="login-btn" form-type='submit'>立即登录</button>
+        </view>
+        <view class="margin">
+            <button bindtap="register" class="register-btn">立即注册</button>
+        </view>
+    </view>
+</view>

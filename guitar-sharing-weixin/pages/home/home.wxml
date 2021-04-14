@@ -1,0 +1,52 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<van-search
+        placeholder="请输入搜索关键词"
+        bind:focus="searchFocus"/>
+<view class="swiper-container">
+    <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}"
+            interval="{{interval}}"
+            duration="{{duration}}"
+            circular="{{duration}}"
+            current="{{swiperCurrent}}"
+            bindchange="swiperChange"
+            class="swiper">
+        <block wx:for="{{imgUrls}}"
+               wx:key="unique">
+            <swiper-item>
+                <image src="{{item}}" class="img" bindtap="swiperClick"/>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<van-divider
+        dashed hairline
+        contentPosition="left">分类导航
+</van-divider>
+
+<van-collapse value="{{activeNames}}" bind:change="onChange">
+    <van-collapse-item
+            title="歌手分类"
+            name="1"
+            label="通过查找曲谱的歌手，分类寻找相应的曲谱">
+        <van-cell-group wx:for="{{singer}}" wx:for-item="it">
+            <van-cell
+                    is-link
+                    title="{{it}}"
+                    link-type="navigateTo"
+                    url="{{'/pages/home/singer/singer?singer='+it}}"/>
+        </van-cell-group>
+    </van-collapse-item>
+    <van-collapse-item
+            title="类型分类"
+            name="2"
+            label="通过查找曲谱的类型，分类寻找相应的曲谱">
+        <van-cell-group wx:for="{{type}}" wx:for-item="it">
+            <van-cell
+                    is-link
+                    title="{{it}}"
+                    link-type="navigateTo"
+                    url="{{'/pages/home/type/type?type='+it}}"/>
+        </van-cell-group>
+    </van-collapse-item>
+</van-collapse>

@@ -1,0 +1,22 @@
+<!--pages/user/feedback/feedback.wxml-->
+<mp-toptips msg="{{error}}" type="info" show="{{error}}"></mp-toptips>
+<van-divider
+        contentPosition="left">我们衷心感谢您的反馈
+</van-divider>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea
+                    class="weui-textarea"
+                    placeholder="请输入您的问题"
+                    style="height: 60vw"
+                    bindinput="feedbackInput"/>
+            <view class="weui-textarea-counter">{{feedbackStr.length}}/200</view>
+        </view>
+    </view>
+    <van-button
+            type="info"
+            block plain hairline
+            bind:click="submitFeedback">提交
+    </van-button>
+</view>

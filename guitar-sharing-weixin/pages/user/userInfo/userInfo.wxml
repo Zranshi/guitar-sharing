@@ -1,0 +1,46 @@
+<!--pages/user/userInfo/userInfo.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<van-image
+        width="100vw"
+        height="50vw"
+        src="https://lemon-blog-img.oss-cn-beijing.aliyuncs.com/blog/imgst22.jpg"
+        fit="contain"/>
+<van-cell-group>
+    <van-field
+            value="{{ username }}"
+            required
+            label="用户名"
+            bind:input="userInput"/>
+    <van-field
+            value="{{ password }}"
+            type="password"
+            label="密码"
+            placeholder="请输入密码"
+            required
+            clearable
+            bind:input="passInput"/>
+    <van-field
+            value="{{ email }}"
+            label="邮箱"
+            placeholder="请输入邮箱"
+            required
+            clearable
+            bind:input="emailInput"/>
+    <van-field
+            value="{{ phone }}"
+            label="电话"
+            placeholder="请输入电话"
+            clearable
+            bind:input="phoneInput"/>
+    <van-field
+            value="{{ sex }}"
+            label="性别"
+            placeholder="请输入性别"
+            clearable
+            bind:input="sexInput"/>
+</van-cell-group>
+<van-button
+        type="info"
+        block plain hairline
+        bind:click="updateInfo">更新个人信息
+</van-button>

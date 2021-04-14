@@ -1,0 +1,113 @@
+<!--pages/learn/learn.wxml-->
+<mp-toptips msg="{{info}}" type="info" show="{{info}}"></mp-toptips>
+<van-panel title="学习推荐" desc="推荐书籍与视频">
+    <van-collapse value="{{activeNames}}" bind:change="onChange">
+        <van-collapse-item
+                title="推荐书籍"
+                name="1">
+            <van-cell-group
+                    wx:for="{{bookList}}"
+                    wx:for-item="item">
+                <van-image
+                        width="100vw"
+                        height="60vw"
+                        src="{{item.imgUrl}}"
+                        fit="contain"
+                />
+                <van-cell
+                        title="{{item.bookname}}"
+                        label="{{item.author}}"
+                        link-type="navigateTo"
+                        url="{{'/pages/learn/web/web?url='+item.bookUrl}}"/>
+            </van-cell-group>
+        </van-collapse-item>
+        <van-collapse-item
+                title="推荐视频"
+                name="2">
+            <van-cell-group
+                    wx:for="{{videoList}}"
+                    wx:for-item="item">
+                <van-cell
+                        title="{{item.vname}}"
+                        label="{{item.description}}"
+                        link-type="navigateTo"
+                        url="{{'/pages/learn/web/web?url='+item.videoUrl}}"/>
+            </van-cell-group>
+        </van-collapse-item>
+    </van-collapse>
+</van-panel>
+
+<van-panel
+        title="动态"
+        desc="发表与浏览动态">
+    <van-button
+            block
+            color="linear-gradient(to right, #4bb0ff, #6149f6)"
+            bindtap="showModal"
+            data-target="DialogModal1">
+        发布动态
+    </van-button>
+    <view class="cu-modal {{modalName==='DialogModal1'?'show':''}}">
+        <view class="cu-dialog">
+            <view class="cu-bar bg-white justify-end">
+                <view class="content">发布您的动态</view>
+                <view class="action" bindtap="hideModal">
+                    <text class="cuIcon-close text-red"></text>
+                </view>
+            </view>
+            <view class="padding-xl">
+                <view class="cu-form-group margin-top">
+                    <textarea maxlength="-1"
+                              bindinput="textareaAInput"
+                              placeholder="展示你自己！">
+                    </textarea>
+                </view>
+            </view>
+            <view class="cu-bar bg-white justify-end">
+                <view class="action">
+                    <button class="cu-btn line-green text-green"
+                            bindtap="hideModal">取消
+                    </button>
+                    <button class="cu-btn bg-green margin-left"
+                            bindtap="submit">确定
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="cu-card dynamic no-card"
+          wx:for="{{showList}}"
+          wx:for-item="item">
+        <view class="cu-item shadow">
+            <view class="cu-list menu-avatar">
+                <view class="cu-item">
+                    <view class="cu-avatar round lg"
+                          style="background-image:url(https://lemon-blog-img.oss-cn-beijing.aliyuncs.com/blog/imgst22.jpg);">
+                    </view>
+                    <view class="content flex-sub">
+                        <view>{{item.uname}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="text-content">
+                {{item.content}}
+            </view>
+            <view class="grid flex-sub padding-lr col-1 {{isCard?'col-3 grid-square':'col-1'}}">
+                <view class="bg-img {{isCard?'':'only-img'}}"
+                      style="background-image:url({{item.img}});">
+                </view>
+            </view>
+            <view class="text-gray text-sm text-right padding">
+                <text class="cuIcon-appreciatefill margin-lr-xs"
+                      data-id="{{item.id}}"
+                      data-cnt="{{item.cnt}}"
+                      bindtap="likeIt"></text> {{item.cnt}}
+                <text class="cuIcon-close margin-lr-xs"
+                      data-id="{{item.id}}"
+                      bindtap="deleteIt"
+                wx:if="{{item.uid === uid}}"></text>
+            </view>
+        </view>
+    </view>
+</van-panel>

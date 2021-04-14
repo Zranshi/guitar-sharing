@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-toptips": "weui-miniprogram/toptips/toptips"
+  },
+  "navigationBarTitleText": "首页"
+}
